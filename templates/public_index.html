@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block head %}
+	<link href="{{url_for('static', filename = 'main.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'public_index.css')}}" rel = "stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+{% endblock %}
+{% block login_logout_link %}
+<a href="/catalog/login/" id="login_link">Login</a>
+{%  endblock %}
+{% block main %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+     <h2 class="flash_message">{{ message }}</h2>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<article id="category">
+<h2 ><a href="#" class= "heading">Main Categories</a></h2>
+<ul id="category_list">
+	{% for category in categories %}
+	<a href="{{url_for('show_category_item', category_id = category.id_)}}"><li id={{category.name}} class="items">{{category.name}}</li></a>
+	{% endfor %}
+</ul>
+<a href="{{url_for('show_category')}}" id="more_category">More Categories</a>
+</article>
+<article id="latest">
+<h2 id="latest_arrival"><a href="#" class= "heading">Latest Arrivals</a></h2>
+<ul id="latest_arrival_list">
+	{% for item in items %}
+	<a href="{{url_for('show_category_item_detail', category_id = item[1].id_, item_id = item[0].id_ )}}"><li id="{{item[0].name}}" class="items">
+		<span>{{item[0].name}}</span>
+		<span class = "x">({{item[1].name}})</span>
+	</li></a>
+	
+	{% endfor %}
+</ul>
+</article>
+<article id="offer">
+<h2 id="offers"><a href="{{url_for('show_offers')}}" class= "heading">Offers</a></h2>
+<ul id="offer-list">
+	{% for offer in offers %}
+	<a href="{{url_for('show_offer_details', offer_id = offer.id_)}}"><li class="items" id="{{offer.name}}">
+		<span id="offer_name_span">{{offer.name}}</span>
+	</li></a>
+	{% endfor %}
+</ul>
+</article>	
+{% block link1 %}
+{% endblock %}
+{% endblock %}

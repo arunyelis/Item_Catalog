@@ -1,0 +1,76 @@
+*{
+	box-sizing: border-box;
+	text-decoration: none;
+}
+html{
+	margin: 0;
+	padding: 0;
+	background-color:#F8E0F7;
+}
+.grid{
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-auto-rows: auto;
+}
+body{
+	background-color: white;
+}
+header{
+	grid-column: 1/-1;
+	grid-row: 1/4;
+	background: linear-gradient(#4b6cb7,#182848);
+}
+header h1{
+	font-family: 'Abril Fatface', cursive;
+	font-size: 1.5em;
+}
+header a{
+	font-family: Arial;
+	font-size: 1.4em;
+	color: #B3CCE3 !important;
+}
+main{
+	grid-column: 1/-1;
+	grid-row: 4/10;
+	background-color: #F8E0F7;
+}
+footer{
+	grid-column: 1/-1;
+	grid-row: 20/22;
+	background-color: lightblue;
+}
+header h1{
+	grid-column: 4/10;
+	grid-row: 1/3;
+	padding-bottom: 7px;
+}
+#login-link{
+	grid-column: 4/-1
+}
+header a{
+	grid-column: 11/-1;
+	grid-row: 1/3;
+	padding-top: 20px;
+}
+footer p{
+	grid-column: 1/-1;
+	font-size: 1.3em;
+	font-family: cursive;
+}
+li a{
+	color: maroon !important;
+}
+#back_to_home{
+	grid-column: 1/3;
+	text-align: center;
+	font-size: 1.5em;
+	color: black;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+a:hover{
+	color: 	royalblue !important;
+}
+li:hover{
+	color: 	royalblue !important;
+}

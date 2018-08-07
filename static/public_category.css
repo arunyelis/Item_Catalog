@@ -1,0 +1,31 @@
+#section-a{
+	grid-column: 1/-1;
+	grid-row:3/8;
+	grid-column-gap: 23px;
+}
+#section-b{
+	grid-column: 1/-1;
+	grid-row:8/10;
+}
+article{
+	grid-column: 4/9;
+	grid-row: 1/10;
+	background-color: white;
+}
+#category_heading{
+	font-family: fantasy;
+	font-size: 2em;
+	text-transform: uppercase;
+	text-align: center;
+}
+.items{
+	grid-column: 5/-1;
+	font-family: sans-serif;
+	font-size: 1.4em;
+	line-height: 1.4em;
+	list-style-type: none;
+}
+
+a{
+	color: black;
+}

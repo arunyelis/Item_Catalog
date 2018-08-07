@@ -1,0 +1,53 @@
+{% extends "main_layout.html" %}
+{% block head %}
+	<link href="{{url_for('static', filename = 'main_layout.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'own_categories_items.css')}}" rel = "stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+{% endblock %}
+{%block username%}{{login_session['username']}}{% endblock %}
+{% block image %}{{login_session['picture']}}{% endblock %}
+{% block main %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+     <h2 class="flash_message">{{ message }}</h2>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<article>
+{% if items|length %}
+
+<h2 id="category_heading">{{category.name}}</h2>
+	<ul>
+	{% for item in items %}
+	<li class="grid">
+		<a href="{{url_for('show_user_categories_items_details', user_id = user.id_, category_id = category.id_, item_id = item.id_ )}}" class="items">{{item.name}}
+		</a>
+		<a href="{{url_for('edit_users_items', user_id = user.id_, category_id = category.id_, item_id = item.id_)}}" id="item_edit">Edit</a>
+		<a href="{{url_for('delete_users_items', user_id = user.id_, category_id = category.id_, item_id = item.id_)}}" id=item_delete>Delete</a>
+		</a>
+		<a href = "{{url_for('add_new_offers', user_id = user.id_, category_id = category.id_, item_id = item.id_)}}" id="add_offer">Add new Offers</a>
+	</li>
+			
+
+	{% endfor %}
+	</ul>	
+{% else %}
+<h2 id="sorry_msg">Sorry No Items available !!</h2>
+<h3 id="recom">Please Add items!!</h3>
+{% endif %}
+</article>
+{%endblock%}
+
+
+{% block link1 %}
+{% if items|length %}
+<a href="{{url_for('delete_users_offers', category_id = category.id_, user_id = user.id_)}}" id="delete_offer">Delete Offers</a>
+{% endif %}
+{% endblock %}
+
+{% block link2 %}
+<a id="create_new_items" href="{{url_for('create_users_new_item', user_id = user.id_, category_id = category.id_)}}">Create New Items
+	</a>
+<a href = "{{url_for('index')}}" id="back">Back TO Home</a>
+{% endblock %}

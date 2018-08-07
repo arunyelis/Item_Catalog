@@ -1,0 +1,27 @@
+{% extends "main_layout.html" %}
+{% block head %}
+	<link href="{{url_for('static', filename = 'main_layout.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'edit_category.css')}}" rel = "stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+{% endblock %}
+{%block username%}{{login_session['username']}}{% endblock %}
+{% block image %}{{login_session['picture']}}{% endblock %}
+{% block main %}
+<article>
+	<h2 id="heading">{{category.name}}</h2>
+	<form method = "POST", action = "{{url_for('edit_users_category', user_id = user.id_, category_id = category.id_)}}">
+		<fieldset>
+			<legend>Edit</legend>
+			<label class="grid">
+				<input  id="name" type="text", name="category_name", placeholder="Enter Category Name", required="required">
+			</label>
+			<div class="grid">
+			<input id="submit" type="submit" name="submit">
+			</div>	
+		</fieldset>
+	</form>
+</article>		
+{%endblock%}
+{% block link1 %}
+<a href = "{{url_for('index')}}" id="back_to_home">Back TO Home</a>
+{% endblock %}

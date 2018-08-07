@@ -1,0 +1,33 @@
+{% extends "main_layout.html" %}
+{% block head %}
+	<link href="{{url_for('static', filename = 'main_layout.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'add_offer.css')}}" rel = "stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+{% endblock %}
+{%block username%}{{login_session['username']}}{% endblock %}
+{% block image %}{{login_session['picture']}}{% endblock %}
+{% block main %}
+<article>
+	<form method = "POST" 
+		  action = "{{url_for('add_new_offers', user_id = user.id_, category_id = category.id_, item_id = item.id_)}}">
+		<fieldset>
+			<legend>New Offer</legend>
+			<div class="grid" id="form_div">
+			<label id="name">
+				<input id="offer_name"  type="text" name="name" required="required", placeholder="Enter Offer Name">
+			</label>
+			<label id="description"> 
+				<textarea id="offer_desc"  name="description" required="required", placeholder="Description"></textarea>
+			</label>
+			<label id="validity">
+				<span id="v_sym">Days</span><input id="offer_validity" type="text" name="validity" required="required", placeholder="Enter Validity">
+			</label>
+			<input id="submit" type="submit" name="Add Offer">
+		</div>
+		</fieldset>
+	</form>
+</article>		
+{%endblock%}
+{% block link1 %}
+<a href = "{{url_for('index')}}" id="back_to_home">Back TO Home</a>
+{% endblock %}

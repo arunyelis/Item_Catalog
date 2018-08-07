@@ -1,0 +1,53 @@
+{% extends "main_layout.html" %}
+{%block username%}{{login_session['username']}}{% endblock %}
+{% block image %}{{login_session['picture']}}{% endblock %}
+{% block head %}
+	<link href="{{url_for('static', filename = 'main_layout.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'index.css')}}" rel = "stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+{% endblock %}
+{% block main %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+     <h2 class="flash_message">{{ message }}</h2>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<article id="category">
+<h2 id="category_heading"><a href="#">Main Categories</a></h2>
+<ul id="category_list">
+	{% for category in categories %}
+	<li id={{category.name}}><a href="{{url_for('show_category_item', category_id = category.id_)}}">{{category.name}}</a></li>
+	{% endfor %}
+</ul>
+<a href="{{url_for('show_category')}}" id="more_category">More Categories</a>
+</article>
+<article id="latest">
+<h2 id="latest_arrival"><a href="#">Latest Arrivals</a></h2>
+<ul id="latest_arrival_list">
+	{% for item in items %}
+	<li id="{{item[0].name}}"><a href="{{url_for('show_category_item_detail', category_id = item[1].id_, item_id = item[0].id_ )}}">
+		<span>{{item[0].name}}</span>
+		<span id="x">({{item[1].name}})</span>
+		</a>
+	</li>
+	
+	{% endfor %}
+</ul>
+</article>
+<article id="offer">
+<h2 id="offers"><a href="{{url_for('show_offers')}}">Offers</a></h2>
+<ul id="offer-list" class="grid">
+	{% for offer in offers %}
+	<li class="offer_items"><a href="{{url_for('show_offer_details', offer_id = offer.id_)}}">
+		{{offer.name}}</a>
+	</li>
+	{% endfor %}
+</ul>	
+</article>
+{% endblock %}
+<article id="index_link" class="grid">
+{% block link1 %}<a href="{{url_for('show_users_categories', user_id = user.id_)}}" id="view_category">View your Categories</a>{% endblock %}
+{% block link2 %}<a href="{{url_for('create_category', user_id = user.id_)}}" id="create_category">Create New Categories</a>{% endblock %}
+</article>

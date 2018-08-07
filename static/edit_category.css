@@ -1,0 +1,47 @@
+#section-a{
+	grid-column: 1/-1;
+	grid-row: 4/8;
+}
+#section-b{
+	grid-column: 1/-1;
+	grid-row: 9/11;
+}
+.flash_message{
+	grid-column: 6/-1;
+	grid-row: 1/2;
+	font-size: 1.2em;
+	color: green;
+}
+article{
+	grid-column: 4/9;
+	grid-row: 2/10;
+	background-color: white;
+
+}
+#heading{
+	font-family: fantasy;
+	font-size: 2em;
+	text-transform: uppercase;
+	text-align: center;
+	padding-bottom: 10px;
+	grid-column: 1/-1;
+}
+legend{
+	font-size: 1.5em;
+	font-family: cursive;
+}
+#name{
+	font-size: 1.3em;
+	margin: 20px 0 0 0 ;
+	text-align: left;
+	grid-column: 4/10;
+	grid-row: 1/2;
+}
+#submit{
+	grid-column: 7/9;
+	grid-row: 3/4;
+	font-size: 1.2em;
+	padding: 5px;
+	border-radius: 10px;
+	margin: 25px 0 0 0 ;
+}

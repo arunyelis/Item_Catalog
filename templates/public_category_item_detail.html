@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block head %}
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+	<link href="{{url_for('static', filename = 'main.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'public_category_items_details.css')}}" rel = "stylesheet" type="text/css">
+{% endblock %}
+{% block login_logout_link %}
+<a href="/catalog/login/" id="login_link">Login</a>
+{%  endblock %}
+{% block main %}
+{% if item %}
+<article id="main_article" class="grid">
+<h2 id="item_name">{{item.name}}</h2>
+<ul id="imp_info">
+<li>
+	<h3 id="description">Description</h3>
+	<span class="info">{{item.description}}</span>
+</li>
+<li >
+	<h3 id="price">Price</h3>
+	<span class="info">₹ {{item.price}}</span>
+</li>
+</ul>
+<h2 id="offer">Offers</h2>
+{% if offers|length %}
+<ul id="offer-list">
+{% for offer in offers %}
+<li><a href="{{url_for('show_offer_details', offer_id = offer.id_)}}">{{offer.name}}</li></a></li>
+{% endfor %}
+</ul>
+{% else %}
+<h3 id="no_offer">No offers!!</h3>
+{% endif %}
+{% else %}
+<h2>No item to show!!</h2>
+{% endif %}
+{% endblock %}
+</article>
+{% block link1 %}
+<a href = "{{url_for('index')}}" id="back_to_home">Back TO Home</a>
+{% endblock %}

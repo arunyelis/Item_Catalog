@@ -1,0 +1,21 @@
+{% extends "main_layout.html" %}
+{% block head %}
+	<link href="{{url_for('static', filename = 'main_layout.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'public_category.css')}}" rel = "stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+{% endblock %}
+{%block username%}{{login_session['username']}}{% endblock %}
+{% block image %}{{login_session['picture']}}{% endblock %}
+{% block main %}
+<article>
+<h2 id="category_heading"><a href="{{url_for('show_category')}}">Categories</a></h2>
+<ul id="category_list">
+	{% for category in categories %}
+	<li class="items"><a href="{{url_for('show_category_item', category_id = category.id_)}}">{{category.name}}</a></li>
+	{% endfor %}
+</ul>
+</a>
+{% endblock%}
+{% block link1 %}
+<a href = "{{url_for('index')}}" id="back_to_home">Back TO Home</a>
+{% endblock %}

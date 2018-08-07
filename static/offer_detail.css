@@ -1,0 +1,55 @@
+#section-a{
+	grid-column: 1/-1;
+	grid-row: 4/8;
+}
+#section-b{
+	grid-column: 1/-1;
+	grid-row: 9/11;
+}
+.flash_message{
+	grid-column: 6/-1;
+	grid-row: 1/2;
+	font-size: 1.2em;
+	color: green;
+}
+article{
+	grid-column: 4/9;
+	grid-row: 2/10;
+	background-color: white;
+
+}
+#category_heading{
+	grid-column: 1/-1;
+	font-family: fantasy;
+	font-size: 2em;
+	color: black;
+	text-transform: uppercase;
+	text-align: center;
+}
+#offer_description_heading{
+	grid-column: 2/-1;
+	font-size: 1.5em;
+}
+#offer_description{
+	grid-column: 3/-1;
+	font-size: 1.4em;
+}
+#offer_validity_heading{
+	grid-column: 2/-1;
+	font-size: 1.5em;
+}
+#offer_validity{
+	grid-column: 3/-1;
+	font-size: 1.4em;
+}
+#offer_for-item_heading{
+	grid-column: 2/-1;
+	font-size: 1.5em;
+}
+#items{
+	grid-column: 2/-1;
+}
+#offer_name{
+	list-style-type: none;
+	font-size: 1.4em;
+}

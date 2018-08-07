@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Item Catalog App</title>
+	{% block head %}
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+	<link href="{{url_for('static', filename = 'main.css')}}" rel = "stylesheet" type="text/css">
+	{% endblock %}
+</head>
+<body>
+	<div class = "grid">
+		<header class="grid" id="header">
+			<h1 class="grid"><a href="{{url_for('index')}}" id="login-link">Catalog App</a></h1>
+			{% block login_logout_link %}{% endblock %}
+		</header>
+		<main class="grid"> 
+			<section id="section-a" class="grid">
+				{% block main %}{% endblock %}
+			</section>	
+			<section id="section-b" class = "grid" >
+				{% block link1 %}
+
+					<a href = "{{url_for('index')}}" id="back_to_home">Back TO Home</a>
+
+				{% endblock %}
+			</section>	
+		</main>
+	</div>	
+</body>
+</html>

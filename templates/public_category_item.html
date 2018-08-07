@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block head %}
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+	<link href="{{url_for('static', filename = 'main.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'public_category_items.css')}}" rel = "stylesheet" type="text/css">
+{% endblock %}
+{% block login_logout_link %}
+<a href="/catalog/login/" id="login_link">Login</a>
+{%  endblock %}
+{% block main %}
+<article id="category_article">
+<h2 id="category_heading">{{category.name}}</h2>
+{% if items|length %}
+<ul id="item_list">
+	{% for item in items %}
+	<a href="{{url_for('show_category_item_detail', category_id = category.id_, item_id=item[0].id_ )}}"><li id={{item[0].name}}>{{item[0].name}}</li></a>
+	{% endfor %}
+</ul>
+</article>
+{% else %}
+<h2 id="no_item">No items to show</h2>
+{% endif %}
+{% endblock%}

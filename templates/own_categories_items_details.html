@@ -1,0 +1,46 @@
+{% extends "main_layout.html" %}
+{% block head %}
+	<link href="{{url_for('static', filename = 'main_layout.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'own_categories_items_details.css')}}" rel = "stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+{% endblock %}
+{%block username%}{{login_session['username']}}{% endblock %}
+{% block image %}{{login_session['picture']}}{% endblock %}
+{% block main %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+     <h2 class="flash_message">{{ message }}</h2>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<article>
+<h2 id="heading"> {{item.name}}</h2>
+<ul>
+<li id="description">
+	<h2>Description</h2>
+	{{item.description}}
+</li>
+<li id="price">
+	<h2>Price</h2>
+	{{item.price}}
+</li>
+<li>
+	<h2 id="offer">Offers</h2>
+	<ul id="offer_list">
+	{% if offers|length %}
+	{% for offer in offers %}
+	<li><a id="offer_name" href="{{url_for('show_offer_details', offer_id = offer.id_)}}">{{offer.name}}</a></li>	
+	{% endfor %}
+	{%else%}
+	<h2 id="sorry_msg">Sorry!!No Offers available</h2>
+	{%endif%}
+	</ul>
+		
+</li>	
+</ul>	
+</article>
+{%endblock%}
+{% block link1 %}
+<a href = "{{url_for('index')}}" id="back_to_home">Back TO Home</a>
+{% endblock %}

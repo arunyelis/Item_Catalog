@@ -1,0 +1,34 @@
+{% extends "main_layout.html" %}
+{% block head %}
+	<link href="{{url_for('static', filename = 'main_layout.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'create_users_new_item.css')}}" rel = "stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+{% endblock %}
+{%block username%}{{login_session['username']}}{% endblock %}
+{% block image %}{{login_session['picture']}}{% endblock %}
+{% block main %}
+<h2 id="heading">Create New Item</h2>
+<article>
+	<form method = "POST" action = "{{url_for('create_users_new_item', user_id = user.id_, category_id = category.id_)}}">
+		<fieldset>
+			<legend>New Item</legend>
+			<div id="form_div" class="grid">
+			<label id="name">
+				<input  id="item_name" type="text" name="name" required="required", placeholder="Enter Item Name">
+			</label>
+			<label id="description">
+				<textarea id="item_desc"  name="description" required="required", placeholder="Description"></textarea>
+			</label>
+			<label id="price">
+				<span id="rs_sym">₹</span><input id="item_price"  type="text" name="price" required="required", placeholder="Enter Price">
+			</label>
+			<input id="submit" type="submit" name="Add Item">
+		</div>
+			
+		</fieldset>
+	</form>	
+</article>
+{%endblock%}
+{% block link1 %}
+<a href = "{{url_for('index')}}" id="back_to_home">Back TO Home</a>
+{% endblock %}

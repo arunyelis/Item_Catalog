@@ -1,0 +1,73 @@
+#section-a{
+	grid-column: 1/-1;
+	grid-row:3/8;
+	grid-column-gap: 23px;
+}
+#section-b{
+	grid-column: 1/-1;
+	grid-row:8/10;
+}
+
+#category_heading{
+	font-family: fantasy;
+	font-size: 2em;
+	color: black;
+	text-transform: uppercase;
+	text-align: center;
+}
+#item_list{
+	grid-column: 5/-1;
+	font-family: sans-serif;
+	font-size: 1.4em;
+}
+a {
+	color: #F879A3;
+	font-size: 1.4em;
+}
+li{
+	font-size: 1.4em;
+	list-style-type: none;
+}
+article{
+	grid-column: 4/9;
+	grid-row: 1/10;
+	background-color: white;
+}
+#item_name{
+	grid-column: 1/-1;
+	font-size: 2.2em;
+	text-align: center;
+	border-bottom: 5px ridge gray;
+}
+#imp_info{
+	grid-column: 1/-1
+}
+#offer{
+	grid-column: 1/-1;
+	text-align: center;
+	color: black;
+}
+#offer-list{
+	grid-column: 1/-1;
+}
+#no_offer{
+	grid-column: 1/-1;
+	color: red;
+	text-align: center;
+	font-size: 1.3em;
+}
+#back_to_home{
+	font-size: 1.4em;
+}
+#description{
+	color: black;
+	font-size: 1.1em;
+}
+#price{
+	color: black;
+	font-size: 1.1em;	
+}
+.info{
+	font-size: 1em;
+	color: gray;
+}

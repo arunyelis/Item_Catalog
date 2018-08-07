@@ -1,0 +1,77 @@
+#section-a{
+	grid-column: 1/-1;
+	grid-row:3/8;
+	grid-column-gap: 23px;
+}
+#section-b{
+	grid-column: 1/-1;
+	grid-row:8/10;
+}
+
+#heading{
+	font-family: fantasy;
+	font-size: 2em;
+	color: black;
+	text-transform: uppercase;
+	text-align: center;
+	border-bottom: 5px ridge black;
+}
+.flash_message{
+	grid-column: 6/-1;
+	grid-row: 1/2;
+	font-size: 1.2em;
+	color: green;
+}
+a {
+	color: #F879A3;
+	font-size: 1.4em;
+}
+li{
+	font-size: 1.4em;
+	list-style-type: none;
+}
+article{
+	grid-column: 4/9;
+	grid-row: 2/10;
+	background-color: white;
+}
+
+
+#offer{
+	grid-column: 1/-1;
+	text-align: center;
+	color: black;
+	text-decoration: underline;
+}
+#offer-list{
+	grid-column: 1/-1;
+}
+#no_offer{
+	grid-column: 1/-1;
+	color: red;
+	text-align: center;
+	font-size: 1.3em;
+}
+#back_to_home{
+	font-size: 1.4em;
+}
+#description{
+	color: black;
+	font-size: 1.1em;
+}
+#price{
+	color: black;
+	font-size: 1.1em;	
+}
+.info{
+	font-size: 1em;
+	color: gray;
+}
+#offer_name{
+	font-size: 1.1em;
+}
+#sorry_msg{
+	color:red;
+	font-size: 1.3em;
+	text-align: center;
+}

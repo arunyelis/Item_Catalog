@@ -1,0 +1,17 @@
+{% extends "main_layout.html" %}
+{%block username%}{{login_session['username']}}{% endblock %}
+{% block image %}{{login_session['picture']}}{% endblock %}
+{% block main %}
+	<form method = "POST" action = "{{url_for('create_category', user_id = user.id_)}}">
+		<fieldset>
+			<legend>Update Category</legend>
+			<label>
+				<input type = "text" placeholder = "Enter Category Name" name="category_name" required="required">
+				<input type="submit" name="submit">
+			</label>	
+		</fieldset>
+	</form>	
+{%endblock%}
+{% block link1 %}
+<a href = "{{url_for('index')}}">Back TO Home</a>
+{% endblock %}

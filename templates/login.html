@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Google Sign In</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+</head>
+<body>
+	<div id="signin_button">
+          <span class="g-signin"
+            data-scope="openid email"
+            data-clientid="421614972856-rjk0gr7mv7o0lom5j56b9lpmd8riviov.apps.googleusercontent.com"
+            data-redirecturi="postmessage"
+            data-accesstype="offline"
+            data-cookiepolicy="single_host_origin"
+            data-callback="signInCallback"
+            data-approvalprompt="force">
+          </span>
+    </div>
+    <div id="output">
+    </div>	
+    <script type="text/javascript">
+    	function signInCallback(authResult){
+    		if (authResult['code']){
+    			$('#signin_button').attr('style', 'display:none');
+    			$.ajax({
+    				type: 'POST',
+    				url: '/google_connect?state={{STATE}}',
+    				processData: false,
+    				data: authResult['code'],
+    				contentType: 'application/octet-stream; charset=utf-8',
+    				success: function(result){
+    					$('#output').html(result + "<br/>Redirecting...")
+    					setTimeout(function(){
+    						window.location.href = '/';
+    					},1000);
+    				}
+    			});
+    		}
+    	else if(authResult['error']){
+    		console.log('There was an error: ' + authResult['error']);
+    	}
+    	else{
+    		$('#result').html('Unable to make call to the server!!!');
+    	}
+    	}
+    </script>
+</body>
+</html>

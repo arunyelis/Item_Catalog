@@ -1,0 +1,45 @@
+{% extends "main_layout.html" %}
+{% block head %}
+	<link href="{{url_for('static', filename = 'main_layout.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'own_categories.css')}}" rel = "stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+{% endblock %}
+{%block username%}{{login_session['username']}}{% endblock %}
+{% block image %}{{login_session['picture']}}{% endblock %}
+{% block main %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+     <h2 class="flash_message">{{ message }}</h2>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<article id="category_article">
+{% if categories|length %}
+{% if categories|length == 1 %}
+<h2 id="category_heading">Your Category</h2>
+{% else %}
+<h2 id="category_heading"> Your Categories </h2>
+{% endif %}
+	<ul>
+	{% for category in categories %}
+	<li class="grid">
+		<a href = "{{url_for('show_user_categories_items', user_id = user.id_, category_id = category.id_)}}" class= "items">{{category.name}}</a>
+		<a href="{{url_for('edit_users_category', user_id = user.id_, category_id = category.id_)}}" id="category_edit">Edit</a>
+		<a href="{{url_for('delete_users_category', user_id = user.id_, category_id = category.id_)}}" id="category_delete">Delete</a>
+		<a href="{{url_for('create_users_new_item', user_id = user.id_, category_id = category.id_)}}" id="category_create_item">Create New Items
+		</a>
+	</li>
+
+	{% endfor %}
+	</ul>	
+{% else %}
+<h2 id="sorry_msg">Sorry No category available !!</h2>
+<h3 id="recom">Please Add Categories and items!!</h3>
+{% endif %}
+{%endblock%}
+</article>
+{% block link1 %}<a href="{{url_for('create_category', user_id = user.id_)}}" id="create_new_category">Create New Categories</a>{% endblock %}
+{% block link2 %}
+<a href = "{{url_for('index')}}" id="back_to_home">Back TO Home</a>
+{% endblock %}

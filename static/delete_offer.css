@@ -1,0 +1,64 @@
+#section-a{
+	grid-column: 1/-1;
+	grid-row: 4/8;
+}
+#section-b{
+	grid-column: 1/-1;
+	grid-row: 9/11;
+}
+.flash_message{
+	grid-column: 1/-1;
+	text-align: center;
+	grid-row: 1/2;
+	font-size: 1.2em;
+	color: green;
+}
+article{
+	grid-column: 4/9;
+	grid-row: 2/10;
+	background-color: white;
+
+}
+legend{
+	font-size: 1.3em;
+	font-family: cursive;
+}
+#option{
+	width: 200px;
+	font-size: 1.1em;
+	color: gray;
+}
+
+h3{
+	grid-column: 1/-1;
+	text-align: center;
+	font-size: 1.8em;
+}
+form{
+	grid-column: 1/-1;
+	text-align: center;
+}
+input{
+	padding: 1px 5px 1px 5px;
+	margin: 2px;
+	width: 60px;
+	border-radius: 10px;
+	font-size: 1.3em;
+}
+#sorry_msg{
+	color:red;
+	text-align: center;
+}
+#select_statement{
+	text-align: center;
+	font-size: 1.9em;
+	border-bottom: 5px ridge black;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+}
+fieldset{
+	padding:40px;
+}
+.submt{
+	width: 100px;
+}

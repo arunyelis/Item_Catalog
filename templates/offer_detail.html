@@ -1,0 +1,35 @@
+{% extends "main_layout.html" %}
+{% block head %}
+	<link href="{{url_for('static', filename = 'main_layout.css')}}" rel = "stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'offer_detail.css')}}" rel = "stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+{% endblock %}
+{%block username%}{{login_session['username']}}{% endblock %}
+{% block image %}{{login_session['picture']}}{% endblock %}
+{% block main %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+     <h2 class="flash_message">{{ message }}</h2>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<article id="offer_detail_article" class="grid">
+<h2 id="category_heading">{{offer.name}}</h2>
+<h3 id="offer_description_heading">Description</h3>
+<p id="offer_description">
+	{{offer.description}}
+</p>	
+<h3 id="offer_validity_heading">Validity</h3>
+<p id="offer_validity">{{offer.validity}}</p>
+<h3 id="offer_for-item_heading">Items</h3>
+<ul id="items">
+	{% for item in items %}
+	<li id="offer_name">{{item[1].name}}</li>
+	{% endfor %}
+</ul>	
+{% endblock%}
+</article>
+{% block link1 %}
+<a href = "{{url_for('index')}}" id="back_to_home">Back TO Home</a>
+{% endblock %}
